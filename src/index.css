@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { @apply h-full bg-white text-slate-800; }
+  body { @apply font-sans antialiased; }
+  a { @apply transition-colors; }
+}
+
+@layer components {
+  .container-x { @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-container; }
+  .btn-primary { @apply inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-brand-dark text-white font-semibold shadow hover:shadow-lg hover:bg-teal-800; }
+  .btn-ghost { @apply inline-flex items-center justify-center px-6 py-3 rounded-2xl ring-1 ring-white/70 text-white font-semibold hover:bg-white/10; }
+  .pill { @apply px-4 py-2 rounded-full bg-white ring-1 ring-slate-200 text-slate-700 text-sm; }
+  .card { @apply p-6 rounded-2xl bg-white shadow-soft ring-1 ring-slate-200; }
+}
+
+.header { @apply sticky top-0 z-50 bg-white/90 backdrop-blur border-b; }
+.header-nav a { @apply text-sm font-medium text-slate-700 hover:text-brand-dark; }
+.header-nav .active { @apply text-brand-dark; }
+
+.hero { @apply relative bg-brand-dark text-white overflow-hidden; }
+.hero-gradient { @apply absolute inset-0 bg-gradient-to-br from-cyan-400 via-brand-teal to-brand-aqua opacity-20; }
+.hero-title { @apply text-4xl sm:text-5xl font-extrabold leading-tight; }
+.hero-sub { @apply mt-4 text-lg sm:text-xl text-teal-50/90 max-w-xl; }
+
+.section { @apply py-16 sm:py-20; }
+.section-muted { @apply py-16 sm:py-20 bg-slate-50; }
+.section-title { @apply text-3xl sm:text-4xl font-extrabold text-brand-dark text-center; }
+.section-sub { @apply mt-3 text-slate-600 text-center max-w-3xl mx-auto; }
+
+.footer { @apply border-t bg-white; }
+.footer a:hover { @apply text-brand-dark; }
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scroll 25s linear infinite;
+}
