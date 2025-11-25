@@ -203,19 +203,19 @@ export default function Home() {
 
 
 
-      {/* COBERTURA */}
-      <motion.section
-        id="cobertura"
-        className="min-h-screen flex items-center"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Regiao />
-        </div>
-      </motion.section>
+     {/* COBERTURA */}
+<motion.section
+  id="cobertura"
+  className="min-h-screen flex items-center"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+>
+  {/* 🔥 REMOVIDO: max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 */}
+  
+  <Regiao />
+</motion.section>
 
       {/* SOBRE */}
       <motion.section

@@ -36,7 +36,7 @@ export default function Regiao() {
       {/* --- LADO DIREITO (IMAGEM FULL VERTICAL + HORIZONTAL ATÉ O MEIO) --- */}
       <div className="w-1/2 h-full">
         <img
-          src="/img/cobertura-mapa.png"   // coloque sua imagem aqui
+          src="/img/cobertura.png"   // coloque sua imagem aqui
           alt="Mapa de cobertura"
           className="w-full h-full object-cover"
         />
