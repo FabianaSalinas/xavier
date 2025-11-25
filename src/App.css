@@ -52,3 +52,35 @@ body::before {
   filter: blur(90px);
   z-index: -1;
 }
+
+
+REGIAO 
+
+/* Força a section da cobertura a ficar lado a lado */
+#cobertura.cobertura-section {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* LADO ESQUERDO */
+.cobertura-esquerda {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* LADO DIREITO */
+.cobertura-direita {
+  width: 50%;
+  height: 100%;
+}
+
+.cobertura-direita img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

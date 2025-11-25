@@ -1,24 +1,50 @@
 import React from "react";
 import { Truck, Clock, ShieldCheck } from "lucide-react";
 
+const Card = ({ Icon, title, desc }) => (
+  <div className="p-7 rounded-3xl bg-white border border-brand-background shadow-soft hover:shadow-lg transition-all duration-300">
+    {/* Ícone premium */}
+    <div className="w-14 h-14 rounded-2xl bg-brand-secondary/20 text-brand-primary flex items-center justify-center mb-5">
+      <Icon className="h-7 w-7" />
+    </div>
 
-const Card = ({Icon, title, desc}) => (
-<div className="p-6 rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 hover:shadow-md">
-<div className="inline-flex p-3 rounded-xl bg-gradient-to-br from-cyan-400 via-teal-400 to-emerald-400 text-white mb-4">
-<Icon className="h-6 w-6"/>
-</div>
-<h3 className="text-lg font-semibold text-slate-900">{title}</h3>
-<p className="mt-2 text-slate-600 text-sm leading-relaxed">{desc}</p>
-</div>
+    {/* Título */}
+    <h3 className="text-xl font-semibold text-brand-dark mb-2">
+      {title}
+    </h3>
+
+    {/* Descrição */}
+    <p className="text-sm text-brand-dark/70 leading-relaxed">
+      {desc}
+    </p>
+
+    {/* Link */}
+    <button className="mt-4 text-brand-primary hover:text-brand-secondary font-medium">
+      Saiba mais →
+    </button>
+  </div>
 );
 
+export default function Frota() {
+  return (
+    <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <Card
+        Icon={Truck}
+        title="Carga Fracionada"
+        desc="Coletas e entregas planejadas, reduzindo custos e oferecendo visibilidade completa."
+      />
 
-export default function Frota(){
-return (
-<div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-<Card Icon={Truck} title="Carga Fracionada" desc="Coleta e entregas planejadas, reduzindo custos e prazos com visibilidade total." />
-<Card Icon={Clock} title="Express e Same Day" desc="Atendimento ágil para envios urgentes na capital e região metropolitana." />
-<Card Icon={ShieldCheck} title="Gestão & Seguro" desc="Rastreamento em tempo real, equipe especializada e seguro da carga." />
-</div>
-);
+      <Card
+        Icon={Clock}
+        title="Expresso & Same Day"
+        desc="Movimentação ultrarrápida para demandas urgentes na capital e RMSP."
+      />
+
+      <Card
+        Icon={ShieldCheck}
+        title="Gestão & Seguro"
+        desc="Operação monitorada, seguro de carga e suporte especializado."
+      />
+    </div>
+  );
 }

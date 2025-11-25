@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Frota from "./frota";
 import Regiao from "./regiao";
 import Sobre from "./sobre";
 import Parceiros from "./parceiros";
@@ -13,7 +12,7 @@ export default function Home() {
       {/* HERO */}
 <motion.section
   id="hero"
-  className="relative min-h-screen flex flex-col justify-start items-center bg-cover bg-center bg-fixed text-gray-900"
+  className="relative min-h-screen flex flex-col justify-start itemsS-center bg-cover bg-center bg-fixed text-gray-900"
   style={{ backgroundImage: "url('/img/hero.png')" }} // 👈 imagem de fundo
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
@@ -99,28 +98,110 @@ export default function Home() {
     }}
   />
 </motion.section>
-      {/* SERVIÇOS */}
-      <motion.section
-        id="servicos"
-        className="min-h-screen flex items-center bg-slate-50"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-teal-800">
-              Soluções de Transporte
-            </h2>
-            <p className="mt-3 text-slate-600">
-              Operamos com cargas secas em toda a Grande São Paulo: coletas programadas,
-              entregas expressas e distribuição fracionada.
-            </p>
-          </div>
-          <Frota />
+   
+   
+    {/* SERVIÇOS – versão final ajustada */}
+<motion.section
+  id="servicos"
+  className="relative overflow-hidden py-20"
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.7 }}
+  viewport={{ once: true }}
+>
+  {/* Fundo suave */}
+  <div
+    className="absolute inset-0 -z-10"
+    style={{
+      background:
+        "linear-gradient(135deg, #ECF9FB 0%, #F4F8F9 40%, #FFFFFF 100%)",
+    }}
+  />
+
+  {/* Título */}
+  <div className="max-w-4xl mx-auto text-center px-6">
+    <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary">
+      Soluções de Transporte
+    </h2>
+    <p className="mt-3 text-brand-dark/70">
+      Operamos com cargas secas em toda a Grande São Paulo: coletas programadas,
+      entregas expressas e distribuição fracionada.
+    </p>
+  </div>
+
+  {/* GRID PRINCIPAL */}
+  <div className="max-w-6xl mx-auto mt-12 grid lg:grid-cols-2 gap-12 px-6">
+
+    {/* ÁREA ESQUERDA — pronta para 2 imagens */}
+    <div className="relative hidden lg:block h-[420px]">
+
+      {/* IMAGEM 1 — FORMAS GEOMÉTRICAS (fundo) */}
+      <img
+        src="/img/formas.png"        // coloque sua imagem aqui
+        alt="Formas geométricas"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+      />
+
+      {/* IMAGEM 2 — PLAY (por cima do fundo) */}
+      <img
+        src="/img/play.png"          // coloque sua imagem aqui
+        alt="Play"
+        className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+      />
+    </div>
+
+    {/* CARDS À DIREITA */}
+    <div className="grid md:grid-cols-2 gap-6">
+
+      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
+        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
+          <span className="text-brand-secondary text-xl">⏱️</span>
         </div>
-      </motion.section>
+        <h3 className="font-semibold text-brand-dark mb-1">Expresso e Same Day</h3>
+        <p className="text-sm text-brand-dark/70 mb-3">
+          Atendimento ágil para envios urgentes na capital e região metropolitana.
+        </p>
+        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+      </div>
+
+      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
+        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
+          <span className="text-brand-secondary text-xl">🛡️</span>
+        </div>
+        <h3 className="font-semibold text-brand-dark mb-1">Gestão & Seguro</h3>
+        <p className="text-sm text-brand-dark/70 mb-3">
+          Rastreamento em tempo real, equipe especializada e seguro da carga.
+        </p>
+        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+      </div>
+
+      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
+        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
+          <span className="text-brand-secondary text-xl">🚚</span>
+        </div>
+        <h3 className="font-semibold text-brand-dark mb-1">Carga Agendada</h3>
+        <p className="text-sm text-brand-dark/70 mb-3">
+          Janelas de coleta e SLA definidos para previsibilidade da operação.
+        </p>
+        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+      </div>
+
+      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
+        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
+          <span className="text-brand-secondary text-xl">📦</span>
+        </div>
+        <h3 className="font-semibold text-brand-dark mb-1">Carga Fracionada</h3>
+        <p className="text-sm text-brand-dark/70 mb-3">
+          Planejamento para reduzir custos e prazos, com visibilidade total.
+        </p>
+        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+      </div>
+
+    </div>
+  </div>
+</motion.section>
+
+
 
       {/* COBERTURA */}
       <motion.section
