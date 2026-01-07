@@ -1,47 +1,51 @@
 import React from "react";
-import { MapPin } from "lucide-react";
 
 export default function Regiao() {
-  const itens = [
-    "São Paulo (Capital)",
-    "ABC Paulista (Santo André, São Bernardo, São Caetano)",
-    "Guarulhos & Arujá",
-    "Osasco, Barueri, Carapicuíba",
-    "Suzano, Mogi das Cruzes",
-    "Cotia, Itapevi e região",
-  ];
-
   return (
-    <section id="cobertura" className="min-h-screen flex items-center">
+    <section
+      id="regiao"
+      className="w-full bg-white flex flex-col lg:flex-row items-start justify-center"
+    >
+
       
-      {/* --- LADO ESQUERDO (MANTIDO COMO ESTAVA) --- */}
-      <div className="w-1/2 pr-10">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-teal-800">
-          Cobertura Metropolitana
+
+      {/* 🔽 TEXTO CENTRALIZADO E COM PADDING TOP */}
+      <div className="w-full lg:w-1/2 pt-[120px] text-center px-6 pb-16">
+
+        <h2 className="text-4xl font-extrabold text-teal-800">
+          Cobertura Metropolitana e Interior Próximo
         </h2>
 
-        <p className="mt-3 text-slate-600">
-          Atendemos toda a Grande São Paulo com prazos competitivos e janelas de coleta personalizadas.
+        <p className="mt-4 text-slate-600 max-w-3xl mx-auto">
+          Atendemos toda a Grande São Paulo e também cidades próximas do interior,
+          garantindo rapidez, previsibilidade e horários de coleta flexíveis.
         </p>
 
-        <ul className="mt-6 grid sm:grid-cols-2 gap-3">
-          {itens.map((t) => (
-            <li key={t} className="flex items-start gap-2 text-slate-700">
-              <MapPin className="h-5 w-5 shrink-0 text-teal-600" /> {t}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <h3 className="mt-10 text-2xl font-semibold text-teal-700">
+          Atendemos principalmente:
+        </h3>
 
-      {/* --- LADO DIREITO (IMAGEM FULL VERTICAL + HORIZONTAL ATÉ O MEIO) --- */}
-      <div className="w-1/2 h-full">
+        <ul className="mt-6 space-y-3 text-slate-700 max-w-xl mx-auto">
+          <li>São Paulo (Capital)</li>
+          <li>ABC Paulista — Santo André, São Bernardo, São Caetano</li>
+          <li>Guarulhos, Arujá e região</li>
+          <li>Osasco, Barueri, Carapicuíba e proximidades</li>
+          <li>Suzano, Mogi das Cruzes e Alto Tietê</li>
+          <li>Cotia, Itapevi, Jandira e cidades vizinhas</li>
+          <li className="font-medium text-teal-700">
+            Interior sob consulta 
+          </li>
+        </ul>
+
+      </div>
+      {/* ⬆️ IMAGEM COLADA AO TOPO */}
+      <div className="w-full lg:w-1/2 flex justify-center">
         <img
-          src="/img/cobertura.png"   // coloque sua imagem aqui
+          src="/img/cobertura.png"
           alt="Mapa de cobertura"
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover object-top"
         />
       </div>
-
     </section>
   );
 }
