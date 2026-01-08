@@ -1,7 +1,7 @@
 // src/components/footer.js
 import React from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, Linkedin } from "lucide-react";
+import { Phone, Mail, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -18,9 +18,9 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold text-slate-900">Fale com a gente</h4>
           <ul className="mt-3 space-y-2 text-sm text-slate-600">
-            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-teal-700" /> (11) 99999-9999</li>
+            <li className="flex items-center gap-2"><Phone className="h-4 w-4 text-teal-700" /> (11) 2382-1854</li>
             <li className="flex items-center gap-2"><Mail className="h-4 w-4 text-teal-700" /> comercial@xavierlogistica.com.br</li>
-            <li className="flex items-center gap-2"><Linkedin className="h-4 w-4 text-teal-700" /> linkedin.com/company/xavierlogistica</li>
+            <li className="flex items-center gap-2"><Instagram className="h-4 w-4 text-teal-700" /> @xavierlogistica</li>
           </ul>
         </div>
         <div>

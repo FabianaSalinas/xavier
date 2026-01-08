@@ -12,7 +12,7 @@ export default function Home() {
       {/* HERO */}
 <motion.section
   id="hero"
-  className="relative min-h-screen flex flex-col justify-start itemsS-center bg-cover bg-center bg-fixed text-gray-900"
+  className="relative min-h-screen flex flex-col justify-start items-center bg-cover bg-center bg-fixed text-gray-900"
   style={{ backgroundImage: "url('/img/hero.png')" }} // 👈 imagem de fundo
   initial={{ opacity: 0 }}
   animate={{ opacity: 1 }}
@@ -161,7 +161,7 @@ export default function Home() {
         <p className="text-sm text-brand-dark/70 mb-3">
           Atendimento ágil para envios urgentes na capital e região metropolitana.
         </p>
-        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
       <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
@@ -172,7 +172,7 @@ export default function Home() {
         <p className="text-sm text-brand-dark/70 mb-3">
           Rastreamento em tempo real, equipe especializada e seguro da carga.
         </p>
-        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
       <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
@@ -183,7 +183,7 @@ export default function Home() {
         <p className="text-sm text-brand-dark/70 mb-3">
           Janelas de coleta e SLA definidos para previsibilidade da operação.
         </p>
-        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
       <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
@@ -194,7 +194,7 @@ export default function Home() {
         <p className="text-sm text-brand-dark/70 mb-3">
           Planejamento para reduzir custos e prazos, com visibilidade total.
         </p>
-        <a href="#" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
+        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
     </div>
