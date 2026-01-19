@@ -3,203 +3,144 @@ import { motion } from "framer-motion";
 import Regiao from "./regiao";
 import Sobre from "./sobre";
 import Parceiros from "./parceiros";
-import { Link } from "react-router-dom";
-import { Send, ShieldCheck, Clock, Truck } from "lucide-react";
+
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-<motion.section
-  id="hero"
-  className="relative min-h-screen flex flex-col justify-start items-center bg-cover bg-center bg-fixed text-gray-900"
-  style={{ backgroundImage: "url('/img/hero.png')" }} // 👈 imagem de fundo
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 1.2, ease: "easeOut" }}
->
-  {/* camada branca translúcida */}
-  <div className="absolute inset-0 bg-white/70"></div>
-
-  {/* conteúdo principal */}
-  <motion.div
-    className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 sm:pt-28 lg:pt-36"
-    initial={{ y: 60, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
-    viewport={{ once: true }}
-  >
-    {/* título */}
-    <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight text-[#0a6e8a] mb-6 drop-shadow-md">
-      Logística eficiente para <br className="hidden sm:block" />
-      grandes distribuidores
-    </h1>
-
-    {/* subtítulo */}
-    <p className="text-lg sm:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
-      Atendimento rápido, seguro e com rastreamento. Soluções sob medida
-      para sua empresa.
-    </p>
-
-    {/* botões */}
-    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
-      <Link
-        to="/contato"
-        className="px-8 py-3 rounded-full border border-gray-800 text-gray-900 font-medium hover:bg-gray-800 hover:text-white transition duration-300"
-      >
-        Fale com o comercial <Send className="inline-block ml-2 h-5 w-5" />
-      </Link>
-      <a
-        href="#servicos"
-        className="px-8 py-3 rounded-full bg-gray-900 text-white font-medium hover:bg-gray-700 transition duration-300"
-      >
-        Conheça os serviços
-      </a>
-    </div>
-
-    {/* ícones inferiores */}
-    <motion.div
-      className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-700"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.2, delay: 0.4 }}
-      viewport={{ once: true }}
-    >
-      <div className="flex items-center gap-2">
-        <ShieldCheck className="h-5 w-5" />
-        <span>Seguro da carga</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <Clock className="h-5 w-5" />
-        <span>Coleta ágil</span>
-      </div>
-      <div className="flex items-center gap-2">
-        <Truck className="h-5 w-5" />
-        <span>Frota rastreada</span>
-      </div>
-    </motion.div>
-  </motion.div>
-
-  {/* movimento suave no fundo */}
-  <motion.div
-    className="absolute inset-0 z-0"
-    style={{
-      backgroundImage: "url('/img/hero.png')",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }}
-    initial={{ scale: 1 }}
-    whileInView={{ scale: 1.1 }}
-    transition={{
-      duration: 8,
-      ease: "easeInOut",
-      repeat: Infinity,
-      repeatType: "mirror",
-    }}
+    {/* hero */}
+<section className="relative">
+  {/* Fundo */}
+  <div
+    className="h-[420px] md:h-[520px] w-full bg-center bg-cover"
+    style={{ backgroundImage: "url('/img/hero-estrada.jpg')" }}
   />
-</motion.section>
+
+
+
+  {/* Conteúdo */}
+  <div className="absolute inset-0">
+    <div className="mx-auto max-w-6xl px-4 h-full flex items-center">
+      <div className="max-w-xl text-white">
+        <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+          Seu Parceiro em <br /> Logística e Transporte.
+        </h1>
+        <p className="mt-4 text-white/90 text-lg">
+          Soluções rápidas e seguras para todo o Brasil.
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <a
+            href="#sobre"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-xl bg-white text-slate-900 font-semibold shadow"
+          >
+            Saiba Mais
+          </a>
+
+          <a
+            href="#contato"
+            className="inline-flex items-center justify-center h-11 px-6 rounded-xl bg-amber-500 text-white font-semibold shadow hover:bg-amber-600"
+          >
+            Entre em contato
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Faixa de diferenciais (igual a faixa com ícones da imagem 2) */}
+  <div className="relative -mt-8">
+    <div className="mx-auto max-w-6xl px-4">
+      <div className="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 px-6 py-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-xl bg-slate-100 flex items-center justify-center">🚚</div>
+          <div>
+            <p className="font-semibold text-slate-900">Entrega Rápida</p>
+            <p className="text-sm text-slate-600">Agilidade e pontualidade</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-xl bg-slate-100 flex items-center justify-center">🛡️</div>
+          <div>
+            <p className="font-semibold text-slate-900">Transporte Seguro</p>
+            <p className="text-sm text-slate-600">Cuidado com sua carga</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <div className="h-10 w-10 rounded-xl bg-slate-100 flex items-center justify-center">🎧</div>
+          <div>
+            <p className="font-semibold text-slate-900">Atendimento Especializado</p>
+            <p className="text-sm text-slate-600">Suporte com qualidade</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
    
    
     {/* SERVIÇOS – versão final ajustada */}
-<motion.section
-  id="servicos"
-  className="relative overflow-hidden py-20"
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7 }}
-  viewport={{ once: true }}
->
-  {/* Fundo suave */}
-  <div
-    className="absolute inset-0 -z-10"
-    style={{
-      background:
-        "linear-gradient(135deg, #ECF9FB 0%, #F4F8F9 40%, #FFFFFF 100%)",
-    }}
-  />
+<section id="servicos" className="py-12">
+  <div className="mx-auto max-w-6xl px-4">
+    <h2 className="text-3xl font-extrabold text-slate-900">Nossos Serviços</h2>
+    <p className="mt-2 text-slate-600">Soluções completas para suas necessidades.</p>
 
-  {/* Título */}
-  <div className="max-w-4xl mx-auto text-center px-6">
-    <h2 className="text-3xl sm:text-4xl font-extrabold text-brand-primary">
-      Soluções de Transporte
-    </h2>
-    <p className="mt-3 text-brand-dark/70">
-      Operamos com cargas secas em toda a Grande São Paulo: coletas programadas,
-      entregas expressas e distribuição fracionada.
-    </p>
-  </div>
-
-  {/* GRID PRINCIPAL */}
-  <div className="max-w-6xl mx-auto mt-12 grid lg:grid-cols-2 gap-12 px-6">
-
-    {/* ÁREA ESQUERDA — pronta para 2 imagens */}
-    <div className="relative hidden lg:block h-[420px]">
-
-      {/* IMAGEM 1 — FORMAS GEOMÉTRICAS (fundo) */}
-      <img
-        src="/img/formas.png"        // coloque sua imagem aqui
-        alt="Formas geométricas"
-        className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
-      />
-
-      {/* IMAGEM 2 — PLAY (por cima do fundo) */}
-      <img
-        src="/img/play.png"          // coloque sua imagem aqui
-        alt="Play"
-        className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
-      />
-    </div>
-
-    {/* CARDS À DIREITA */}
-    <div className="grid md:grid-cols-2 gap-6">
-
-      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
-        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
-          <span className="text-brand-secondary text-xl">⏱️</span>
+    <div className="mt-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+      {/* Cards pequenos */}
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+        <div className="h-36 bg-slate-100 bg-cover bg-center" style={{ backgroundImage: "url('/img/servico-1.png')" }} />
+        <div className="p-5">
+          <p className="font-bold text-slate-900">Cargas Fracionadas</p>
+          <p className="text-sm text-slate-600 mt-1">Coleta e entrega com eficiência.</p>
         </div>
-        <h3 className="font-semibold text-brand-dark mb-1">Expresso e Same Day</h3>
-        <p className="text-sm text-brand-dark/70 mb-3">
-          Atendimento ágil para envios urgentes na capital e região metropolitana.
-        </p>
-        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
-      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
-        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
-          <span className="text-brand-secondary text-xl">🛡️</span>
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+        <div className="h-36 bg-slate-100 bg-cover bg-center" style={{ backgroundImage: "url('/img/servico-2.png')" }} />
+        <div className="p-5">
+          <p className="font-bold text-slate-900">Cargas Completas</p>
+          <p className="text-sm text-slate-600 mt-1">Viagens dedicadas e seguras.</p>
         </div>
-        <h3 className="font-semibold text-brand-dark mb-1">Gestão & Seguro</h3>
-        <p className="text-sm text-brand-dark/70 mb-3">
-          Rastreamento em tempo real, equipe especializada e seguro da carga.
-        </p>
-        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
-      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
-        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
-          <span className="text-brand-secondary text-xl">🚚</span>
+      <div className="bg-white rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-200">
+        <div className="h-36 bg-slate-100 bg-cover bg-center" style={{ backgroundImage: "url('/img/servico-3.png')" }} />
+        <div className="p-5">
+          <p className="font-bold text-slate-900">Logística Dedicada</p>
+          <p className="text-sm text-slate-600 mt-1">Operação sob medida.</p>
         </div>
-        <h3 className="font-semibold text-brand-dark mb-1">Carga Agendada</h3>
-        <p className="text-sm text-brand-dark/70 mb-3">
-          Janelas de coleta e SLA definidos para previsibilidade da operação.
-        </p>
-        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
       </div>
 
-      <div className="bg-white rounded-2xl border border-brand-background shadow-soft p-6">
-        <div className="w-12 h-12 rounded-xl bg-brand-secondary/15 flex items-center justify-center mb-4">
-          <span className="text-brand-secondary text-xl">📦</span>
+      {/* Card grande de números (igual o bloco da imagem 2) */}
+      <div className="rounded-2xl overflow-hidden shadow-sm ring-1 ring-slate-200 bg-slate-900 text-white p-6 flex flex-col justify-between">
+        <div className="grid grid-cols-3 gap-4">
+          <div>
+            <p className="text-3xl font-extrabold">+10</p>
+            <p className="text-xs text-white/80">Anos de Experiência</p>
+          </div>
+          <div>
+            <p className="text-3xl font-extrabold">+5k</p>
+            <p className="text-xs text-white/80">Entregas</p>
+          </div>
+          <div>
+            <p className="text-3xl font-extrabold">99%</p>
+            <p className="text-xs text-white/80">Satisfação</p>
+          </div>
         </div>
-        <h3 className="font-semibold text-brand-dark mb-1">Carga Fracionada</h3>
-        <p className="text-sm text-brand-dark/70 mb-3">
-          Planejamento para reduzir custos e prazos, com visibilidade total.
-        </p>
-        <a href="comercial" className="text-brand-primary hover:text-brand-secondary font-medium">Saiba mais →</a>
-      </div>
 
+        <a
+          href="#servicos"
+          className="mt-6 inline-flex items-center justify-center h-11 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold"
+        >
+          Ver Todos os Serviços
+        </a>
+      </div>
     </div>
   </div>
-</motion.section>
+</section>
 
 
 
