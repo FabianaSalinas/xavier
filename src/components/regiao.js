@@ -1,50 +1,65 @@
 import React from "react";
+import { CheckCircle } from "lucide-react";
 
 export default function Regiao() {
   return (
-    <section
-      id="regiao"
-      className="w-full bg-white flex flex-col lg:flex-row items-start justify-center"
-    >
+    <section id="regiao" className="w-full py-20 bg-slate-50">
+      {/* CONTAINER CENTRAL */}
+      <div className="max-w-6xl mx-auto px-4">
+        {/* TÍTULO */}
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-4xl font-extrabold text-slate-900">
+            Regiões Atendidas
+          </h2>
+          <p className="mt-4 text-slate-600">
+            Atendemos principalmente a Grande São Paulo e regiões estratégicas,
+            garantindo agilidade e segurança em cada operação.
+          </p>
+        </div>
 
-      
+        {/* CARD CENTRALIZADO */}
+        <div className="mt-12 flex justify-center">
+          <div className="w-full bg-white rounded-3xl shadow-sm ring-1 ring-slate-200 overflow-hidden">
+            <div className="grid lg:grid-cols-2">
+              {/* MAPA COM MARCADORES */}
+              <div className="p-8 bg-slate-50 flex items-center justify-center">
+                <img
+                  src="/img/cobertura.png"
+                  alt="Mapa do Brasil com regiões atendidas"
+                  className="w-full max-w-md h-auto object-contain"
+                />
+              </div>
 
-      {/* 🔽 TEXTO CENTRALIZADO E COM PADDING TOP */}
-      <div className="w-full lg:w-1/2 pt-[120px] text-center px-6 pb-16">
+              {/* LISTA */}
+              <div className="p-8 sm:p-10">
+                <h3 className="text-2xl font-semibold text-teal-800">
+                  Atendemos principalmente:
+                </h3>
 
-        <h2 className="text-4xl font-extrabold text-teal-800">
-          Cobertura Metropolitana e Interior Próximo
-        </h2>
+                <ul className="mt-6 space-y-4 text-slate-700">
+                  {[
+                    "São Paulo (Capital)",
+                    "ABC Paulista — Santo André, São Bernardo, São Caetano",
+                    "Guarulhos, Arujá e região",
+                    "Osasco, Barueri, Carapicuíba e proximidades",
+                    "Suzano, Mogi das Cruzes e Alto Tietê",
+                    "Cotia, Itapevi, Jandira e cidades vizinhas",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle className="h-5 w-5 text-teal-600 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
 
-        <p className="mt-4 text-slate-600 max-w-3xl mx-auto">
-          Atendemos toda a Grande São Paulo e também cidades próximas do interior,
-          garantindo rapidez, previsibilidade e horários de coleta flexíveis.
-        </p>
-
-        <h3 className="mt-10 text-2xl font-semibold text-teal-700">
-          Atendemos principalmente:
-        </h3>
-
-        <ul className="mt-6 space-y-3 text-slate-700 max-w-xl mx-auto">
-          <li>São Paulo (Capital)</li>
-          <li>ABC Paulista — Santo André, São Bernardo, São Caetano</li>
-          <li>Guarulhos, Arujá e região</li>
-          <li>Osasco, Barueri, Carapicuíba e proximidades</li>
-          <li>Suzano, Mogi das Cruzes e Alto Tietê</li>
-          <li>Cotia, Itapevi, Jandira e cidades vizinhas</li>
-          <li className="font-medium text-teal-700">
-            Interior sob consulta 
-          </li>
-        </ul>
-
-      </div>
-      {/* ⬆️ IMAGEM COLADA AO TOPO */}
-      <div className="w-full lg:w-1/2 flex justify-center">
-        <img
-          src="/img/cobertura.png"
-          alt="Mapa de cobertura"
-          className="w-full h-auto object-cover object-top"
-        />
+                  <li className="flex items-start gap-3 font-semibold text-teal-700">
+                    <CheckCircle className="h-5 w-5 mt-0.5" />
+                    <span>Interior sob consulta</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

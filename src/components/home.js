@@ -16,6 +16,8 @@ export default function Home() {
     style={{ backgroundImage: "url('/img/hero-estrada.jpg')" }}
   />
 
+{/* Overlay escuro */}
+  <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/55 to-slate-900/15" />
 
 
   {/* Conteúdo */}
