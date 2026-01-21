@@ -24,7 +24,7 @@ export default function Regiao() {
               {/* MAPA COM MARCADORES */}
               <div className="p-8 bg-slate-50 flex items-center justify-center">
                 <img
-                  src="/img/cobertura.png"
+                  src="/img/regiao.png"
                   alt="Mapa do Brasil com regiões atendidas"
                   className="w-full max-w-md h-auto object-contain"
                 />
