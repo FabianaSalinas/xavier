@@ -26,6 +26,16 @@ export default function Header() {
             <a href="#sobre" className="text-sm font-medium text-slate-700 hover:text-teal-700">Sobre</a>
             <NavLink to="/contato" className="text-sm font-medium text-slate-700 hover:text-teal-700">Contato</NavLink>
             <NavLink to="/trabalhe-conosco" className="text-sm font-medium text-slate-700 hover:text-teal-700">Trabalhe Conosco</NavLink>
+            <NavLink
+  to="/rastreio"
+  className={({ isActive }) =>
+    `text-sm font-medium ${
+      isActive ? "text-teal-700 border-b-2 border-teal-700" : "text-slate-700 hover:text-teal-700"
+    }`
+  }
+>
+  Rastreio
+</NavLink>
           </nav>
         </div>
       </div>
