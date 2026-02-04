@@ -6,11 +6,23 @@ module.exports = async function handler(req, res) {
       return res.status(405).json({ user_message: "Método não permitido." });
     }
 
-    const { documentNumber, cnpj, key } = req.query;
+    // ✅ Aceita os dois formatos:
+    // Front novo: NumeroNF / CnpjTransportadora
+    // Manual/antigo: documentNumber / cnpj
+    const {
+      NumeroNF,
+      CnpjTransportadora,
+      documentNumber,
+      cnpj,
+      key,
+    } = req.query;
 
-    if (!documentNumber || !cnpj) {
+    const nfFinal = (NumeroNF || documentNumber || "").toString().trim();
+    const cnpjFinal = (CnpjTransportadora || cnpj || "").toString().trim();
+
+    if (!nfFinal || !cnpjFinal) {
       return res.status(400).json({
-        user_message: "Informe documentNumber (NF) e cnpj.",
+        user_message: "Informe NumeroNF (NF) e CnpjTransportadora (CNPJ).",
       });
     }
 
@@ -23,18 +35,19 @@ module.exports = async function handler(req, res) {
         user_message: "TRACKING_API_BASE não configurada na Vercel.",
       });
     }
+
     if (!user || !pass) {
       return res.status(500).json({
         user_message:
-          "Credenciais do desenvolvedor não configuradas (TRACKING_DEV_USER/TRACKING_DEV_PASS).",
+          "Credenciais não configuradas (TRACKING_DEV_USER / TRACKING_DEV_PASS).",
       });
     }
 
-    // Monta URL conforme o manual:
+    // ✅ Monta URL conforme seu comentário:
     // /getStatus?cnpj=...&documentNumber=...&key=...
     const url = new URL(`${base.replace(/\/$/, "")}/getStatus`);
-    url.searchParams.set("cnpj", String(cnpj));
-    url.searchParams.set("documentNumber", String(documentNumber));
+    url.searchParams.set("cnpj", cnpjFinal);
+    url.searchParams.set("documentNumber", nfFinal);
     if (key) url.searchParams.set("key", String(key));
 
     const basic = Buffer.from(`${user}:${pass}`).toString("base64");
@@ -65,3 +78,4 @@ module.exports = async function handler(req, res) {
     });
   }
 };
+
