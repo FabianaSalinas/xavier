@@ -13,11 +13,11 @@ export default function Rastreio() {
     setErro("");
     setDoc(null);
 
-    const NumeroNF = nf.trim();
-    const CnpjTransportadora = cnpj.trim();
+    const documentNumber = nf.trim();
+    const cnpjValue = cnpj.trim();
 
-    if (!NumeroNF || !CnpjTransportadora) {
-      setErro("Digite a NF e o CNPJ da transportadora.");
+    if (!documentNumber || !cnpjValue) {
+      setErro("Digite a NF e o CNPJ do cliente.");
       return;
     }
 
@@ -25,18 +25,18 @@ export default function Rastreio() {
       setLoading(true);
 
       const res = await fetch(
-        `/api/getStatus?NumeroNF=${encodeURIComponent(
-          NumeroNF
-        )}&CnpjTransportadora=${encodeURIComponent(CnpjTransportadora)}`
+        `/api/getStatus?documentNumber=${encodeURIComponent(documentNumber)}&cnpj=${encodeURIComponent(cnpjValue)}`
       );
 
       const data = await res.json().catch(() => ({}));
+
+      // a API pode retornar 200 mesmo sem documento (user_message)
+      const first = data?.response_data?.[0]?.Documento || null;
 
       if (!res.ok) {
         throw new Error(data?.user_message || "Erro ao consultar rastreio.");
       }
 
-      const first = data?.response_data?.[0]?.Documento || null;
       if (!first) {
         setErro(data?.user_message || "Documento não encontrado.");
         return;
@@ -59,7 +59,7 @@ export default function Rastreio() {
               Rastrear entrega
             </h1>
             <p className="mt-2 text-slate-600">
-              Digite a <b>NF</b> e o <b>CNPJ</b> da transportadora para acompanhar o status.
+              Digite a <b>NF</b> e o <b>CNPJ do cliente</b> para acompanhar o status.
             </p>
 
             <form onSubmit={buscar} className="mt-8 grid gap-3 sm:grid-cols-3">
@@ -67,13 +67,13 @@ export default function Rastreio() {
                 value={nf}
                 onChange={(e) => setNf(e.target.value)}
                 className="w-full rounded-2xl border-slate-300 focus:ring-teal-600 focus:border-teal-600"
-                placeholder="NF (ex: 123456)"
+                placeholder="NF (ex: 271410)"
               />
               <input
                 value={cnpj}
                 onChange={(e) => setCnpj(e.target.value)}
                 className="w-full rounded-2xl border-slate-300 focus:ring-teal-600 focus:border-teal-600"
-                placeholder="CNPJ (somente números)"
+                placeholder="CNPJ do cliente (somente números)"
               />
               <button
                 type="submit"
@@ -99,7 +99,7 @@ export default function Rastreio() {
                         {doc.NumeroNF}
                       </p>
                       <p className="text-sm text-slate-600 mt-1">
-                        CNPJ: {doc.CnpjTransportadora || "—"}
+                        Transportadora: {doc.NomeTransportadora || "—"}
                       </p>
                     </div>
 
@@ -145,7 +145,6 @@ export default function Rastreio() {
                 <div className="bg-white rounded-3xl ring-1 ring-slate-200 p-6">
                   <p className="font-semibold text-slate-900">Detalhes</p>
                   <div className="mt-3 space-y-2 text-sm text-slate-700">
-                    <p><span className="text-slate-500">Transportadora:</span> {doc.NomeTransportadora}</p>
                     <p><span className="text-slate-500">Placa:</span> {doc.Placa || "—"}</p>
                     <p><span className="text-slate-500">Motorista:</span> {doc.Motorista || "—"}</p>
                     <p><span className="text-slate-500">Rota:</span> {doc.Rota || "—"}</p>
@@ -157,9 +156,7 @@ export default function Rastreio() {
                   <div className="lg:col-span-3">
                     <div className="bg-white rounded-3xl ring-1 ring-slate-200 overflow-hidden">
                       <div className="p-4 border-b border-slate-200">
-                        <p className="font-semibold text-slate-900">
-                          Tracking detalhado
-                        </p>
+                        <p className="font-semibold text-slate-900">Tracking detalhado</p>
                         <p className="text-sm text-slate-600">
                           Se não carregar, use o botão “Abrir tracking”.
                         </p>
