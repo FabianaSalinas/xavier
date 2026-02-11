@@ -26,15 +26,24 @@ export default function Header() {
             <a href="#sobre" className="text-sm font-medium text-slate-700 hover:text-teal-700">Sobre</a>
             <NavLink to="/contato" className="text-sm font-medium text-slate-700 hover:text-teal-700">Contato</NavLink>
             <NavLink to="/trabalhe-conosco" className="text-sm font-medium text-slate-700 hover:text-teal-700">Trabalhe Conosco</NavLink>
-            <NavLink
+  <NavLink
   to="/rastreio"
   className={({ isActive }) =>
-    `text-sm font-medium ${
-      isActive ? "text-teal-700 border-b-2 border-teal-700" : "text-slate-700 hover:text-teal-700"
-    }`
+    `
+    relative inline-flex items-center gap-2
+    px-5 py-2.5 rounded-xl
+    font-semibold text-sm
+    transition-all duration-300
+    shadow-md
+    ${
+      isActive
+        ? "bg-[#095c73] text-white shadow-[0_8px_20px_rgba(10,110,137,0.4)]"
+        : "bg-[#0a6e89] text-white hover:bg-[#095c73] hover:shadow-[0_8px_20px_rgba(10,110,137,0.4)]"
+    }
+    `
   }
 >
-  Rastreio
+  🚚 Localize sua carga
 </NavLink>
           </nav>
         </div>

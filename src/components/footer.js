@@ -32,6 +32,7 @@ export default function Footer() {
             <li><a href="#sobre">Sobre</a></li>
             <li><Link to="/contato">Contato</Link></li>
             <li><Link to="/trabalhe-conosco">Trabalhe Conosco</Link></li>
+            <li><Link to="/rastreio">localize sua carga</Link></li>
           </ul>
         </div>
       </div>
